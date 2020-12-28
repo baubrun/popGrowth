@@ -41,7 +41,7 @@ const Canvas = () => {
      
         </G>
       </Svg>
-      <Scales />
+      {/* <Scales /> */}
     </>
   );
 };

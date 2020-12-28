@@ -49,10 +49,8 @@ const populationSlice = createSlice({
                 state.error = error
             } else {
                 const pg = data.map(i => {
-                    return {[i["Country Code"]]: parseFloat(i["Population growth (annual %)"]) || 0}
+                    return {name: i["Country Code"], value: parseFloat(i["Population growth (annual %)"]) || 0}
                 })
-                // const vals = pg.map(i => Object.values(i))
-                // console.log('vals :>>', vals)
                 state.countriesPopulationGrowth = pg
             }
         },
