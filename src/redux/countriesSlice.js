@@ -4,15 +4,14 @@ import {
 } from "@reduxjs/toolkit"
 import * as d3 from "d3";
 
-export const countriesMapPath = `${process.env.PUBLIC_URL}/world.geojson.json`
+export const countriesPath = `${process.env.PUBLIC_URL}/data/world.geojson`
 
 
-
-export const getCountriesMap = createAsyncThunk(
+export const getCountries = createAsyncThunk(
     "/countriesData",
     async () => {
         try {
-            const res = await d3.json(countriesMapPath)
+            const res = await d3.json(countriesPath)
             return {
                 data: res
             }
@@ -27,20 +26,20 @@ export const getCountriesMap = createAsyncThunk(
 
 
 
-const countriesMapSlice = createSlice({
-    name: "countriesMap",
+const countriesSlice = createSlice({
+    name: "countries",
     initialState: {
-        countriesMap: [],
+        countries: [],
         error: "",
         loading: false
     },
 
     reducers: {},
     extraReducers: {
-        [getCountriesMap.pending]: (state) => {
+        [getCountries.pending]: (state) => {
             state.loading = true;
         },
-        [getCountriesMap.fulfilled]: (state, action) => {
+        [getCountries.fulfilled]: (state, action) => {
             state.loading = false;
             const {
                 error,
@@ -49,10 +48,10 @@ const countriesMapSlice = createSlice({
             if (error) {
                 state.error = error
             } else {
-                state.countriesMap = data
+                state.countries = data.features
             }
         },
-        [getCountriesMap.rejected]: (state, action) => {
+        [getCountries.rejected]: (state, action) => {
             state.loading = false;
             state.error = action.error;
         },
@@ -62,5 +61,5 @@ const countriesMapSlice = createSlice({
 
 
 
-export const countriesMapState = (state) => state.countriesMap;
-export default countriesMapSlice.reducer;
+export const countriesState = (state) => state.countries;
+export default countriesSlice.reducer;

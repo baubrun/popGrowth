@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import populationReducer from "./populationSlice";
-import countriesMapReducer from "./countriesMapSlice";
+import countriesReducer from "./countriesSlice";
 
 
 export default configureStore({
     reducer: {
         population: populationReducer,
-        countriesMap: countriesMapReducer,
+        countries: countriesReducer,
     }
 })
 
