@@ -10,7 +10,9 @@ const Svg = (props) => {
          
          
          >
-           <G transform={props.bounds}/>
+           <G 
+           transform={props.bounds}
+           />
         </svg>
     )
 }
