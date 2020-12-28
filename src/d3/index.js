@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 
-const popGrowthPath = `${process.env.PUBLIC_URL}/data/pop.growth2019.csv`
+// const popGrowthPath = `${process.env.PUBLIC_URL}/data/pop.growth2019.csv`
 
 
 // export const popGrowthData = async () => {
@@ -56,8 +56,7 @@ dimensions.height = dimensions.boundedHeight + dimensions.margin.bottom + dimens
 // // const bounds = wrapper.append("g")
 // //     .style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
 
-const bounds = `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`
-
+const bounds = `translate(${dimensions.margin.left}, ${dimensions.margin.top})`
 
 
 
@@ -67,4 +66,7 @@ const bounds = `translate(${dimensions.margin.left}px, ${dimensions.margin.top}p
 export const canvas = {
     dimensions,
     bounds,
+    path: pathGenerator(sphere)
+
+
 }

@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const G = (props) => {
-    return (
-        <g 
-        {...props}
-        >
-            
-        </g>
-    )
-}
+    // console.log('props.transform :>>', props.transform)
+  return <g 
+  transform={props.transform}
+  style={props.style}
+  >{props.children}</g>;
+};
 
-export default G
+export default G;
