@@ -21,7 +21,6 @@ const CountriesPath = () => {
               d={canvas.pathGenerator(c)}
               style={{
                 fill: popGrowthScaleColors[idx],
-                stroke: "light-gray",
               }}
             />
           );
