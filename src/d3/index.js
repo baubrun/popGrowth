@@ -1,18 +1,5 @@
 import * as d3 from "d3";
-
-// const popGrowthPath = `${process.env.PUBLIC_URL}/data/pop.growth2019.csv`
-
-
-// export const popGrowthData = async () => {
-//     try {
-//         const data = await d3.csv(popGrowthPath)
-//         return data
-//     } catch (error) {
-//         console.log('error :>>', error)
-//     }
-// }
-
-
+import { path } from "d3";
 
 
 let dimensions = {
@@ -36,8 +23,6 @@ const projection = d3.geoEqualEarth()
 
 const pathGenerator = d3.geoPath(projection)
 
-// // console.log('pathGenerator :>>', pathGenerator(sphere))
-// // console.log('bounds path :>> ', pathGenerator.bounds(sphere));
 
 const [
     [x0, y0],
@@ -48,25 +33,18 @@ dimensions.boundedHeight = y1
 dimensions.height = dimensions.boundedHeight + dimensions.margin.bottom + dimensions.margin.top
 
 
-// // const wrapper = d3.select("#wrapper")
-// //     .append("svg")
-// //     .attr("width", dimensions.width)
-// //     .attr("height", dimensions.height)
-
-// // const bounds = wrapper.append("g")
-// //     .style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
-
 const bounds = `translate(${dimensions.margin.left}, ${dimensions.margin.top})`
 
+const graticuleJson = d3.geoGraticule10()
+console.log('graticuleJson :>>', graticuleJson)
 
-
-
+// const graticule
 
 
 export const canvas = {
     dimensions,
     bounds,
-    path: pathGenerator(sphere)
-
+    path: pathGenerator(sphere),
+    graticule: pathGenerator(graticuleJson)
 
 }
