@@ -3,8 +3,16 @@
     font-weight: bolder;
 }
 
-.legend {
+.legend, .legendValues {
     fill: black;
+}
+
+.endValue {
+    text-anchor: end;
+}
+
+.startValue {
+    text-anchor: initial;
 }
 
 .secondary-text {

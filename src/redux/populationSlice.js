@@ -29,10 +29,9 @@ const populationSlice = createSlice({
     name: "population",
     initialState: {
         countriesPopulationGrowth: [],
-        popGrowthScaleColors: [],
         error: "",
-        loading: false
-
+        loading: false,
+        maxGrowth: null,
     },
 
     reducers: {},
@@ -67,6 +66,7 @@ const populationSlice = createSlice({
                     .range(["#ff00ff", "#009933"]);
 
                 state.popGrowthScaleColors = growths.map(c => colorScale(c))
+                state.maxGrowth = maxChange
             }
         },
         [getPopulationGrowth.rejected]: (state, action) => {
