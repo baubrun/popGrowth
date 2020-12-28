@@ -5,12 +5,12 @@ import { populationState } from "../redux/populationSlice";
 import * as d3 from "d3";
 
 const Scales = () => {
-  const { countries } = useSelector(populationState);
+  const { countriesPopulationGrowth } = useSelector(populationState);
   const [colors, setColors] = useState([]);
 
 
   const colorScale = () => {
-    const range = d3.extent(countries);
+    const range = d3.extent(countriesPopulationGrowth);
     const maxChange = d3.max([-range[0], range[1]]);
     const colorScale = d3
       .scaleLinear()

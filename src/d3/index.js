@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import { path } from "d3";
 
 
 let dimensions = {
@@ -36,9 +35,6 @@ dimensions.height = dimensions.boundedHeight + dimensions.margin.bottom + dimens
 const bounds = `translate(${dimensions.margin.left}, ${dimensions.margin.top})`
 
 const graticuleJson = d3.geoGraticule10()
-console.log('graticuleJson :>>', graticuleJson)
-
-// const graticule
 
 
 export const canvas = {

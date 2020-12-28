@@ -4,14 +4,15 @@ import {
 } from "@reduxjs/toolkit"
 import * as d3 from "d3";
 
-export const popGrowthPath = `${process.env.PUBLIC_URL}/data/pop.growth2019.csv`
+export const countriesMapPath = `${process.env.PUBLIC_URL}/world.geojson.json`
 
 
-export const getPopulationGrowth = createAsyncThunk(
-    "/populationGrowthData",
+
+export const getCountriesMap = createAsyncThunk(
+    "/countriesData",
     async () => {
         try {
-            const res = await d3.csv(popGrowthPath)
+            const res = await d3.json(countriesMapPath)
             return {
                 data: res
             }
@@ -26,20 +27,20 @@ export const getPopulationGrowth = createAsyncThunk(
 
 
 
-const populationSlice = createSlice({
-    name: "population",
+const countriesMapSlice = createSlice({
+    name: "countriesMap",
     initialState: {
-        countriesPopulationGrowth: [],
+        countriesMap: [],
         error: "",
         loading: false
     },
 
     reducers: {},
     extraReducers: {
-        [getPopulationGrowth.pending]: (state) => {
+        [getCountriesMap.pending]: (state) => {
             state.loading = true;
         },
-        [getPopulationGrowth.fulfilled]: (state, action) => {
+        [getCountriesMap.fulfilled]: (state, action) => {
             state.loading = false;
             const {
                 error,
@@ -48,10 +49,10 @@ const populationSlice = createSlice({
             if (error) {
                 state.error = error
             } else {
-                state.countriesPopulationGrowth = data
+                state.countriesMap = data
             }
         },
-        [getPopulationGrowth.rejected]: (state, action) => {
+        [getCountriesMap.rejected]: (state, action) => {
             state.loading = false;
             state.error = action.error;
         },
@@ -61,5 +62,5 @@ const populationSlice = createSlice({
 
 
 
-export const populationState = (state) => state.population;
-export default populationSlice.reducer;
+export const countriesMapState = (state) => state.countriesMap;
+export default countriesMapSlice.reducer;
