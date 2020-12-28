@@ -48,7 +48,12 @@ const populationSlice = createSlice({
             if (error) {
                 state.error = error
             } else {
-                state.countriesPopulationGrowth = data
+                const pg = data.map(i => {
+                    return {[i["Country Code"]]: parseFloat(i["Population growth (annual %)"]) || 0}
+                })
+                // const vals = pg.map(i => Object.values(i))
+                // console.log('vals :>>', vals)
+                state.countriesPopulationGrowth = pg
             }
         },
         [getPopulationGrowth.rejected]: (state, action) => {
