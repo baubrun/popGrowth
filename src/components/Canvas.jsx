@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Svg from "./Svg";
 import G from "./G";
-import Scales from "./Scales";
+import Legend from "./Legend";
 import Path from "./Path";
 import CountriesPath from "./CountriesPath";
 import { canvas } from "../d3";

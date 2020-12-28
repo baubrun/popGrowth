@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDispatch} from "react-redux"
 
 import Canvas from "./components/Canvas"
@@ -16,11 +16,6 @@ const App = () => {
     dispatch(getPopulationGrowth())
     dispatch(getCountries())
   }, [])
-
-  // useEffect(() => {
-  //   dispatch(getCountries())
-  // }, [])
-
 
 
 

@@ -7,40 +7,40 @@ import { countriesState } from "../redux/countriesSlice";
 import * as d3 from "d3";
 
 const CountriesPath = () => {
-  const { countriesPopulationGrowth } = useSelector(populationState);
+  const { countriesPopulationGrowth, popGrowthScaleColors } = useSelector(populationState);
   const { countries } = useSelector(countriesState);
   const [colors, setColors] = useState([]);
 
-  const colorScale = () => {
-    const growths = countriesPopulationGrowth.map((i) => i.value);
-    const range = d3.extent(growths);
+  // const colorScale = () => {
+  //   const growths = countriesPopulationGrowth.map((i) => i.value);
+  //   const range = d3.extent(growths);
 
-    const maxChange = d3.max([-range[0], range[1]]);
+  //   const maxChange = d3.max([-range[0], range[1]]);
 
-    const colorScale = d3.scaleLinear()
-      .domain([-maxChange, maxChange])
-      .range(["#ff00ff", "#009933"]);
+  //   const colorScale = d3.scaleLinear()
+  //     .domain([-maxChange, maxChange])
+  //     .range(["#ff00ff", "#009933"]);
 
-    const scales = growths.map(c => colorScale(c)) 
-    setColors(scales)
+  //   const scales = growths.map(c => colorScale(c)) 
+  //   setColors(scales)
     
-  };
+  // };
 
-  useEffect(() => {
-    colorScale();
-  }, [countriesPopulationGrowth]);
+  // useEffect(() => {
+  //   colorScale();
+  // }, [countriesPopulationGrowth]);
 
   return (
     <>
       {countries &&
-        colors.length > 0 &&
+        popGrowthScaleColors &&
         countries.map((c, idx) => {
           return (
             <path
               key={idx}
               d={canvas.pathGenerator(c)}
               style={{
-                fill: colors[idx],
+                fill: popGrowthScaleColors[idx],
                 stroke: "light-gray",
               }}
             />
