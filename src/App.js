@@ -14,11 +14,12 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPopulationGrowth())
-  }, [])
-
-  useEffect(() => {
     dispatch(getCountries())
   }, [])
+
+  // useEffect(() => {
+  //   dispatch(getCountries())
+  // }, [])
 
 
 

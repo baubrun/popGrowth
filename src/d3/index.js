@@ -41,6 +41,6 @@ export const canvas = {
     dimensions,
     bounds,
     path: pathGenerator(sphere),
-    graticule: pathGenerator(graticuleJson)
-
+    graticule: pathGenerator(graticuleJson),
+    pathGenerator,
 }
