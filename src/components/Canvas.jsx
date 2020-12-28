@@ -1,4 +1,5 @@
 import React from "react";
+import {useSelector} from "react-redux"
 
 import Svg from "./Svg";
 import G from "./G";
@@ -6,6 +7,10 @@ import Legend from "./Legend";
 import Path from "./Path";
 import CountriesPath from "./CountriesPath";
 import { canvas } from "../d3";
+
+import {countriesState} from "../redux/countriesSlice"
+import Spinner from "./Spinner"
+
 
 const style = {
   svgMainColor: {
@@ -24,7 +29,12 @@ const style = {
 };
 
 const Canvas = () => {
+const {loading} = useSelector(countriesState)
 
+
+  if(loading){
+    return <Spinner />
+  }
 
   return (
     <>
