@@ -1,3 +1,4 @@
+import * as d3 from "d3";
 // const countries = "./data/world.geojson.json"
 
 // const countryShapes = d3.json(countries, data => console.log(data))
@@ -42,10 +43,15 @@ dimensions.boundedHeight = y1
 dimensions.height = dimensions.boundedHeight + dimensions.margin.bottom + dimensions.margin.top
 
 
-const wrapper = d3.select("#wrapper")
-    .append("svg")
-    .attr("width", dimensions.width)
-    .attr("height", dimensions.height)
+// const wrapper = d3.select("#wrapper")
+//     .append("svg")
+//     .attr("width", dimensions.width)
+//     .attr("height", dimensions.height)
 
-const bounds = wrapper.append("g")
-    .style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
+// const bounds = wrapper.append("g")
+//     .style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
+
+
+export const canvas = {
+    dimensions,
+}
