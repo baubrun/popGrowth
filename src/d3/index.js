@@ -2,13 +2,15 @@ import * as d3 from "d3";
 
 
 let dimensions = {
-    width: window.innerWidth * 0.9,
+    boundedWidth: null,
+    boundedHeight: null,
     margin: {
         top: 10,
         right: 10,
         bottom: 10,
         left: 10,
-    }
+    },
+    width: window.innerWidth * 0.9,
 }
 
 dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right

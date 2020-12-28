@@ -23,25 +23,13 @@ export const getPopulationGrowth = createAsyncThunk(
     }
 )
 
-const setColor = (state) => {
-    const growths = state.countriesPopulationGrowth.map((i) => i.value);
-    const range = d3.extent(growths);
-
-    const maxChange = d3.max([-range[0], range[1]]);
-
-    const colorScale = d3.scaleLinear()
-        .domain([-maxChange, maxChange])
-        .range(["#ff00ff", "#009933"]);
-
-    state.popGrowthScaleColors = growths.map(c => colorScale(c))
-}
 
 
 const populationSlice = createSlice({
     name: "population",
     initialState: {
-        popGrowthScaleColors: [],
         countriesPopulationGrowth: [],
+        popGrowthScaleColors: [],
         error: "",
         loading: false
 
@@ -79,7 +67,6 @@ const populationSlice = createSlice({
                     .range(["#ff00ff", "#009933"]);
 
                 state.popGrowthScaleColors = growths.map(c => colorScale(c))
-
             }
         },
         [getPopulationGrowth.rejected]: (state, action) => {

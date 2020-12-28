@@ -1,0 +1,14 @@
+.legendTitle{
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.legend {
+    fill: black;
+}
+
+.secondary-text {
+    stroke: rgb(120, 122, 122);
+    letter-spacing: 1px;
+}
+

@@ -7,41 +7,41 @@ import Path from "./Path";
 import CountriesPath from "./CountriesPath";
 import { canvas } from "../d3";
 
-
 const style = {
   svgMainColor: {
-    fill: "#b3ecff",
+    fill: "#e6ffff",
   },
   graticule: {
     fill: "none",
     strokeWidth: 1,
-    stroke: "#9A8B7A",
+    stroke: "#d3cdc5",
   },
+  legendBounds: `translate(120, ${canvas.dimensions.width < 800 
+    ? canvas.dimensions.boundedHeight - 30
+    : canvas.dimensions.boundedHeight * 0.5
+    })`
+    
 };
 
-
-
-
 const Canvas = () => {
- 
+
+
   return (
     <>
-
-      <h1>Pop Growth 2019</h1>
       <Svg
         height={canvas.dimensions.height}
         width={canvas.dimensions.width}
         style={style.svgMainColor}
       >
-        <G 
-        transform={canvas.bounds}>
+        <G transform={canvas.bounds}>
           <Path path={canvas.path} />
           <Path path={canvas.graticule} style={style.graticule} />
           <CountriesPath />
-     
+        </G>
+        <G transform={style.legendBounds}>
+          <Legend />
         </G>
       </Svg>
-      {/* <Scales /> */}
     </>
   );
 };

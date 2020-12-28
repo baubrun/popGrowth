@@ -1,38 +1,38 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { populationState } from "../redux/populationSlice";
-import * as d3 from "d3";
-import {canvas} from "../d3"
+import React from "react";
 
+ 
+import "../css/legend.css";
 
-const Scales = () => {
-  // const { countriesPopulationGrowth } = useSelector(populationState);
-  // const [colors, setColors] = useState([]);
+const Legend = () => {
 
-  
+  const legendWidth = 120;
+  const legendHeight = 16;
 
-
-
-  // const colorScale = () => {
-  //   const growths = countriesPopulationGrowth.map(i => Object.values(i))
-  //   const range = d3.extent(growths);
-  //   const maxChange = d3.max([-range[0], range[1]]);
-  //   const colorScale = d3.scaleLinear()
-  //     .domain([-maxChange, maxChange])
-  //     .range(["#66ccff", "#009933"]);
-  //     console.log('colorScale(growths) :>> ', colorScale());
-  //   setColors(colorScale(growths));
-  // };
-
-
-
-  // useEffect(() => {
-  //   colorScale();
-  // }, [countriesPopulationGrowth]);
-
-
-  return <div></div>;
+  return (
+    <>
+      <text y="100" className="legend legendTitle">
+        Population Growth
+      </text>
+      <text y="125" className="legend secondary-text">
+        Percent change in 2019
+      </text>
+      <rect
+        y={145}
+        height={legendHeight}
+        width={legendWidth}
+        fill="url(#legendGradient)"
+      />
+      <defs>
+        <linearGradient id="legendGradient">
+          <stop stop-color="#ff00ff" offset="0%"></stop>
+          <stop stop-color="#fff" offset="50%"></stop>
+          <stop stop-color="#009933" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      
+    </>
+  );
 };
 
-export default Scales;
+export default Legend;
