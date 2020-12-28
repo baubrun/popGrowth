@@ -25,12 +25,7 @@ const projection = d3.geoEqualEarth()
 const pathGenerator = d3.geoPath(projection)
 
 
-const [
-    [x0, y0],
-    [x1, y1]
-] = pathGenerator.bounds(sphere)
-
-dimensions.boundedHeight = y1
+dimensions.boundedHeight = pathGenerator.bounds(sphere)[1][1]
 dimensions.height = dimensions.boundedHeight + dimensions.margin.bottom + dimensions.margin.top
 
 
