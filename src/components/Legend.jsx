@@ -40,14 +40,14 @@ const Legend = () => {
         y={legendY + 45}
         className="legendValues endValue"
       >
-        {-maxGrowth.toFixed(2)}
+        {-maxGrowth.toFixed(2)}%
       </text>
       <text
         x={legendWidth + 10}
         y={legendY + 45}
         className="legendValues startValue"
       >
-        {maxGrowth.toFixed(2)}
+        {maxGrowth.toFixed(2)}%
       </text>
     </>
   );

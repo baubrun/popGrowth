@@ -63,7 +63,7 @@ const populationSlice = createSlice({
 
                 const colorScale = d3.scaleLinear()
                     .domain([-maxChange, maxChange])
-                    .range(["#ff00ff", "#009933"]);
+                    .range(["#ff00ff", "#00ff00"]);
 
                 state.popGrowthScaleColors = growths.map(c => colorScale(c))
                 state.maxGrowth = maxChange
